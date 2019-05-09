@@ -1,27 +1,52 @@
 # Netmeds
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+Angular front end to view employee information. 
 
-## Development server
+---
+## Important
+The [`netmeds-api`](https://github.com/profgrammer/netmeds-api) server should be running in order to make this front end function properly. Please [follow the steps to get the server running](https://github.com/profgrammer/netmeds-api/blob/master/README.md) before continuing.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## Required Software
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* [NodeJS](https://nodejs.org/en/download/)
+* `angular-cli` : run `npm install -g @angular/cli`
 
-## Build
+## Steps
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+* Clone this repository
+* `cd` into it and type `ng serve -o` to start the server and open the home page. 
 
-## Running unit tests
+## Home screen
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* Search for employees using the search bar and button.
+* Select how many employees to view per page with the selector (works only on list of all employees, not on search) 
+* On the home page, click on the pencil icon to edit an employee.
+* Click the garbage bin icon to delete the employee
 
-## Running end-to-end tests
+![home screen](./images/homeScreen.png)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Employee Profile page
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* Click on an employee to view their profile.
+
+![employee profile](./images/employeeScreen.png)
+
+## Edit/delete employee
+
+* Edit the details, and preview the profile picture or remove it. Click submit to save changes
+
+![edit employee](./images/update.png)
+
+
+## Add a new employee
+
+* On the top navbar, click *Add employee* to add a new employee.
+
+![Add employee](./images/add.png)
+
+## Updated home screen after editing
+
+![Updated employee](./images/updatedHome.png)

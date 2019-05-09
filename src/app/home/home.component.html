@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="container">
+    <div class="h1">Employees</div>
+
+    <div class="form-group row search">
+      <label  for="searchTerm" class="col-form-label">Search</label>
+      <div class="col-3 input-group">
+          <input [(ngModel)]="searchTerm" id="searchTerm" type="text" class="form-control" />
+          <span (click)="clear()" id="cancel" class="fa fa-times" aria-hidden="true"></span>
+      </div>
+      <button (click)="searchEmployees()" class="btn btn-primary">Search</button>
+      <div class="col-3 align-right">
+        <select [(ngModel)]="num" (change)="changeList()" class="form-control">
+          <option value="5" selected="selected">5</option>
+          <option value="10">10</option>
+          <option value="15" >15</option>
+        </select>
+      </div>
+    </div>
+      
+  </div>
+  <ul class="list-group" *ngIf="employees.length > 0">
+    <li *ngFor="let employee of employees" class="list-group-item employee" routerLink="/view/{{employee._id}}">
+        
+          <img height="100px" width="100px" [src]="employeeService.image_url + employee.profilePhoto" alt="">
+          <span class="name font-weight-bold">{{employee.name | uppercase}}</span>
+        
+        <div class="icon float-right align-middle" routerLink="/edit/{{employee._id}}" title="edit"><i class="fas fa-edit"></i></div>
+        <div class="icon float-right" title="delete" (click)="deleteEmployee(employee)"><i class="fas fa-trash"></i></div>
+        <!-- <button>Edit</button> -->
+        <!-- <button >Delete</button> -->
+    </li>
+  </ul>
+  <div class="row" *ngIf="employees.length == 0">
+    <div class="col-4"></div>
+    <div class="col-4">Sorry, no employees found..</div>
+    <div class="col-4"></div>
+  </div>
+  <div *ngIf="employees.length > 0" class="row justify-content-center">
+    <ul class="pagination">
+      
+      <li *ngFor="let i of arr(pages).fill(1); let ind = index" class="page-item"><a [ngClass]="{'selected': ind+1 === currentPage}" (click)="changePage(ind+1)" class="page-link">{{ind+1}}</a></li>
+      
+      
+    </ul>
+  </div>
+</div>
+

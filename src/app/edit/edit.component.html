@@ -1,0 +1,67 @@
+<div *ngIf="employee" class="container">
+  
+  <div>
+    <span class="h1">{{employee.name | uppercase}} details </span>
+    <button class="btn btn-danger align-middle float-right" (click)="deleteEmployee(employee)">Delete Employee</button>
+  </div>
+
+  <div style="padding:10px">
+  <form [formGroup]="editEmployee" (ngSubmit)="submitForm()">
+    <div class="form-group row">
+      <label for="name" class="col-3 col-form-label">Name </label>
+      <div class="input-group col-6">
+        <input class="form-control" id="name" type="text" formControlName="name" value="{{employee.name}}">
+        <div *ngIf="submitted && editEmployee.controls.name.errors" class="error">
+            <div *ngIf="editEmployee.controls.name.errors.required">name is required</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="dob" class="col-3 col-form-label">Date of birth</label>
+      <div class="input-group col-6">
+        <input id="dob" class="form-control" type="date" [ngModel]="employee.dob | date: 'yyyy-MM-dd'" formControlName="dob">
+        <div *ngIf="submitted && editEmployee.controls.dob.errors" class="error">
+          <div *ngIf="editEmployee.controls.dob.errors.required">date of birth is required</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="salary" class="col-3 col-form-label">Salary</label>
+      <div class="input-group col-6">
+        <input class="form-control" type="text" formControlName="salary" pattern="[0-9]+" value="{{employee.salary}}">
+        <div *ngIf="submitted && editEmployee.controls.salary.errors" class="error">
+          <div *ngIf="editEmployee.controls.salary.errors.required">salary is required</div>
+          <div *ngIf="editEmployee.controls.salary.errors.pattern">Only numbers allowed</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+     <label for="skillsDiv" class="col-12 col-form-label">Skills</label>
+      <div id="skillsDiv" *ngFor="let skill of employeeService.getSkills()" class="col-6">
+        <input (change)="modifySkills(skill, $event.target.checked)" type="checkbox"  [name]="skill" [checked]="skills.includes(skill)">
+        <label for="{{skill}}">{{skill}}</label>
+      </div>
+    </div>
+    
+    <div class="container">
+        <label for="dp">Profile Picture: </label>
+        <img class="rounded mx-auto d-block" id="dp" height="100px" width="100px" [src]="imageUrl" *ngIf="imageUrl">
+    </div>
+    
+    <div class="input-group">
+      <div class="custom-file">
+        <input class="custom-file-input" id="profilePhoto" type="file" name="profilePhoto" accept="image/*" (change)="onFileSelect($event)">
+        <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+      </div>
+      <div class="input-group-append">
+        <button type="button" class="btn btn-danger" (click)="removePhoto()">Remove Profile Photo</button>
+        <button class="btn btn-success" type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>

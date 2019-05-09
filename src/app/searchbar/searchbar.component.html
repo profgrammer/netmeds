@@ -1,0 +1,27 @@
+<!-- <div id="search-component">
+    <h4>Employee Search</h4>
+   
+    <input class="form-control mr-sm-2" type="search" #searchBox id="search-box" (input)="search(searchBox.value)" />
+   
+    <ul class="search-result">
+      <li *ngFor="let employee of employees$ | async" >
+        <a routerLink="/view/{{employee._id}}">
+          {{employee.name}}
+        </a>
+      </li>
+    </ul>
+</div> -->
+
+<form class="form-inline my-2 my-lg-0">
+    <input class="form-control" autocomplete="off" list="employeesList" placeholder="Search Employees" #searchBox (input)="search(searchBox.value)" />
+    <datalist id="employeesList">
+        <option *ngFor="let employee of employees$ | async" >
+          <a routerLink="/view/{{employee._id}}">
+            {{employee.name}}
+          </a>
+        </option>
+    </datalist>
+</form>
+
+
+  

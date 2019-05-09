@@ -1,0 +1,64 @@
+<div class="container">
+  <h1>Add new Employee</h1>
+
+  
+    <form [formGroup]="addEmployee" (ngSubmit)="submitForm()">
+      <div class="form-group row">
+        <label for="name" class="col-3 col-form-label">Name </label>
+        <div class="input-group col-6">  
+          <input class="form-control" id="name" type="text" placeholder="name" formControlName="name"/>
+          <div *ngIf="submitted && addEmployee.controls.name.errors" class="error">
+            <div class="alert alert-warning" *ngIf="addEmployee.controls.name.errors.required">name is required</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="dob" class="col-3 col-form-label">Date of birth</label>
+        <div class="input-group col-6">
+          <input id="dob" class="form-control" type="date" placeholder="date of birth" formControlName="dob" (change)="dateChange($event)"/>
+          <div *ngIf="submitted && addEmployee.controls.dob.errors" class="error">
+            <div class="alert alert-warning" *ngIf="addEmployee.controls.dob.errors.required">date of birth is required</div>
+          </div>
+        </div>
+      </div>  
+
+      <div class="form-group row">
+        <label for="salary" class="col-3 col-form-label">Salary</label>
+        <div class="input-group col-6">
+          <input id="salary" class="form-control" type="text" placeholder="salary" pattern="[0-9]+" formControlName="salary"/>
+          <div *ngIf="submitted && addEmployee.controls.salary.errors" class="error">
+            <div class="alert alert-warning" *ngIf="addEmployee.controls.salary.errors.required">salary is required</div>
+            <div class="alert alert-warning"  *ngIf="addEmployee.controls.salary.errors.pattern">Only numbers allowed</div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="form-group row">
+        <label for="skillsDiv" class="col-12 col-form-label">Skills: </label>
+        <div id="skillsDiv" class="col-6" *ngFor="let skill of employeeService.getSkills()">
+          <input type="checkbox" name={{skill}} (change)="modifySkills(skill, $event.target.checked)">
+          <label for={{skill}}>{{skill}}</label>
+        </div>
+      </div>
+        
+
+        <label for="profilePhoto">Choose a profile picture: </label>
+        <div class="input-group mb3">
+            
+        </div>
+        <div class="input-group row">
+          
+            <div class="custom-file col-4">
+                <input class="custom-file-input" id="profilePhoto" type="file" name="profilePhoto" accept="image/*" (change)="onFileSelect($event)">
+                <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+            </div>
+            <div class="input-group-append">
+                <button class="btn btn-success" type="submit">Submit</button>
+            </div>
+        </div>
+      
+    </form>
+  
+  
+</div>

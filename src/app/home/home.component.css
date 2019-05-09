@@ -1,0 +1,39 @@
+.employee div.icon{
+    margin: 5px;
+}
+
+.employee{
+    margin: 10px;
+}
+
+.employee:hover{
+    background: #dae0ea;
+    cursor: pointer;
+}
+
+.name{
+    text-decoration: none;
+    padding: 20px;
+}
+
+.fas:hover{
+    color: black;
+}
+
+img{
+    border-radius: 50%;
+}
+
+.search{
+    margin-top: 50px;
+}
+
+#cancel{
+    position: absolute;
+    top: 11px;
+    right: 25px;
+}
+
+.selected{
+    background: lightblue;
+}

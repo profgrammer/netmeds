@@ -1,0 +1,8 @@
+.navbar-nav li {
+    line-height: 50px;
+}
+
+.navbar-nav li:hover{
+    cursor: pointer;
+}
+   

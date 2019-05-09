@@ -1,0 +1,13 @@
+.container{
+    padding: 10px;
+}
+
+.row {
+    display: flex; /* equal height of the children */
+  }
+
+  .unbold{
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-weight: normal;
+  }
