@@ -25,20 +25,20 @@ The [`netmeds-api`](https://github.com/profgrammer/netmeds-api) server should be
 * On the home page, click on the pencil icon to edit an employee.
 * Click the garbage bin icon to delete the employee
 
-![home screen](https://github.com/profgrammer/netmeds/blob/master/images/homeScreen.png)
+![home screen](https://github.com/profgrammer/netmeds/blob/master/images/homeScreen.PNG)
 
 
 ## Employee Profile page
 
 * Click on an employee to view their profile.
 
-![employee profile](https://github.com/profgrammer/netmeds/blob/master/images/employeeScreen.png)
+![employee profile](https://github.com/profgrammer/netmeds/blob/master/images/employeeScreen.PNG)
 
 ## Edit/delete employee
 
 * Edit the details, and preview the profile picture or remove it. Click submit to save changes
 
-![edit employee](https://github.com/profgrammer/netmeds/blob/master/images/update.png)
+![edit employee](https://github.com/profgrammer/netmeds/blob/master/images/update.PNG)
 
 
 ## Add a new employee
@@ -49,4 +49,4 @@ The [`netmeds-api`](https://github.com/profgrammer/netmeds-api) server should be
 
 ## Updated home screen after editing
 
-![Updated employee](https://github.com/profgrammer/netmeds/blob/master/images/updatedHome.png)
+![Updated employee](https://github.com/profgrammer/netmeds/blob/master/images/updatedHome.PNG)
